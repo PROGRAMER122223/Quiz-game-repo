@@ -68,7 +68,7 @@ const quizData = [
                                     const parentOption = document.querySelector(".option");
                                     var timerElement = document.querySelector(".timer-count");
                                     const res=document.querySelector(".result");
-                                    const hideDiv=document.querySelector(".block-div")
+                                    
 
 
                                     let currentQuiz = 0;
@@ -85,7 +85,7 @@ const startGame = () => {
                                         startTimer();
                                        
                                         timerCount = 75;
-                                        
+                                        myFunction();
                                     loadQuiz();
 }
 
@@ -168,17 +168,23 @@ function startTimer() {
 
  
   
-
-
-
- 
-
-
-
-
-
-
-
+    function myFunction(){
+      const showDiv=document.querySelector(".quiz-container")
+      const hideDiv=document.querySelector(".block-div");
+      
+        if(showDiv.style.display="none"){
+          showDiv.style.display="block";
+        }else{
+          showDiv.style.display="none";
+        }
+      
+      if (hideDiv.style.display === "none") {
+        hideDiv.style.display = "block";
+      } else {
+        hideDiv.style.display = "none";
+      }
+    
+    }
 
 
                                    parentOption.addEventListener("click", getCheckAnswer, false);
