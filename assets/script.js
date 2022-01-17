@@ -66,8 +66,9 @@ const quizData = [
                                     const ans4 = document.querySelector("#btn4");
                                     const submit = document.querySelector("#submit");
                                     const parentOption = document.querySelector(".option");
-
                                     var timerElement = document.querySelector(".timer-count");
+                                    const res=document.querySelector(".result");
+                                    const hideDiv=document.querySelector(".block-div")
 
 
                                     let currentQuiz = 0;
@@ -82,7 +83,9 @@ const quizData = [
                                     */
 const startGame = () => {
                                         startTimer();
-                                    timerCount = 75;
+                                       
+                                        timerCount = 75;
+                                        
                                     loadQuiz();
 }
 
@@ -114,51 +117,88 @@ const loadQuiz = () => {
                                         e.stopPropagation();
                                     if (e.target !== e.currentTarget) {
                                         var clickedItem = e.target.id;
-                                       alert("hello" + clickedItem);
+                                       //alert("hello" + clickedItem);
                                       }
 
 
 
                                     if (clickedItem === quizData[currentQuiz].correct) {
-                                        alert("correct");
+                                       alert("correct");
                                     score++;
+                                  
+                                
                                     } else
                                     //startTimer(totalCounter/2);
-                                    alert("wrong answer");
+                                    {    alert("wrong");                                                        
+                                                          
+                                                                                                                                     
+                                  
+                                  }
 
-                                    //console.log(quizData[currentQuiz].correct);
-
-                                    answerCounter++;
+                                    //console.log(quizData[currentQuiz].correct); 
+                                    ////return(wrong )        
+                                
                                     currentQuiz++;
                                     loadQuiz();
-}
+                                     }
 
-                                    //timer
-                                    function startTimer() {
-                                        // Sets timer
-                                        timer = setInterval(function () {
-                                            timerCount--;
-                                            timerElement.textContent = timerCount;
+                                     // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
+function startTimer() {
+    // Sets timer
+    timer = setInterval(function() {
+      timerCount--;
+      timerElement.textContent = timerCount;
+      if (timerCount >= 0) {
+        // Tests if win condition is met
+        if (currentQuiz==5 && timerCount > 0) {
+          // Clears interval and stops timer
+          clearInterval(timer);
+        
+        }
+      }
+      // Tests if time has run out
+      if (timerCount === 0) {
+        // Clears interval
+        clearInterval(timer);
+        
+      }
+    }, 1000);
+  }
+                                   
 
-                                            if (timerCount >= 0) {
-                                                // Tests if win condition is met
-                                                if (answerCounter == 2 && timerCount > 0) {
-                                                    // Clears interval and stops timer
-                                                    clearInterval(timer);
-                                                    // winGame();
-                                                }
-                                            }
-                                            // Tests if time has run out
-                                            if (timerCount === 0) {
-                                                // Clears interval
-                                                clearInterval(timer);
-                                                // loseGame();
-                                            }
-                                        }, 1000);
-}
+ 
+  
+
+
+
+ 
 
 
 
 
-                                    parentOption.addEventListener("click", getCheckAnswer, false);
+
+
+
+
+
+                                   parentOption.addEventListener("click", getCheckAnswer, false);
+                                 //  var checkans=getCheckAnswer;
+                                  // console.log(checkans);
                                     start.addEventListener('click', startGame);
+                                    
+
+
+
+
+                                    
+                                         
+                                    
+
+
+
+
+
+
+
+
+
