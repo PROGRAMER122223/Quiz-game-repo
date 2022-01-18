@@ -68,14 +68,16 @@ const quizData = [
                                   const parentOption = document.querySelector(".option");
                                   const timerElement = document.querySelector(".timer-count");
                                   const res=document.querySelector(".result");
-                                  const savedName=document.getElementById("#last-name")
+                                  const stdentName = document.querySelector("#last-name");
                                   const submit = document.querySelector("#submit");
-                                  const scoreValue=document.querySelector("#scoreValue");
+                                  const scoreValue = document.querySelector("#scoreValue");
 
-                                  const showDiv=document.querySelector(".quiz-container")
+                                  const showDiv=document.querySelector(".quiz-container");
                                   const hideDiv=document.querySelector(".block-div");
                                   const nameDiv=document.querySelector(".name-container");
                                   const finalDiv=document.querySelector(".final-container");
+
+                                  const goBack=document.querySelector("go-back");
 
                                  
                                   let currentQuiz = 0;
@@ -231,6 +233,90 @@ function startTimer() {
     }
   
   }
+//*******************************code to save data *****************************************/
+let studentData=[];
+function saveLastData() {
+  // Save related form data as an object
+  /*if(finalDiv.style.display="none"){
+    finalDiv.style.display="block";
+    
+  }else{
+  finalDiv.style.display="none";
+    
+  }
+  hideDiv.style.display = "none";
+  showDiv.style.display = "none";
+  nameDiv.style.display = "none";*/
+  
+
+  studentData.score= scoreValue.value;
+  studentData.student=stdentName.value;
+  console.log(studentData.score);
+  console.log(studentData.student);
+  /*let studentData =[{
+    
+    score: scoreValue.value,
+    student: stdentName.value
+  
+  }]; */ // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+ localStorage.setItem("studentData", JSON.stringify(studentData));
+}
+
+function renderLastData() {
+  if(finalDiv.style.display="none"){
+    finalDiv.style.display="block";
+    
+  }else{
+  finalDiv.style.display="none";
+    
+  }
+  hideDiv.style.display = "none";
+  showDiv.style.display = "none";
+  nameDiv.style.display = "none";
+  
+
+
+
+
+  // Use JSON.parse() to convert text to JavaScript object
+  let lastData = JSON.parse(localStorage.getItem("studentData"));
+  // Check if data is returned, if not exit out of the function
+  if (lastData !== null) {
+  document.getElementById("#saved-name").innerHTML = lastData.student;
+  document.getElementById("#score-value").innerHTML = lastData.score;
+  
+  } else {
+    return;
+  }
+}
+
+
+
+
+
+function startDiv()
+{ if(finalDiv.style.display="none"){
+  finalDiv.style.display="block";
+  
+}else{
+finalDiv.style.display="none";
+
+
+}
+}
+
+submit.addEventListener("click", function(event) {
+event.preventDefault();
+saveLastData();
+renderLastData();
+});
+
+
+
+
+
+
+
 //function to save name entered
 //******************************************************************************************************88 */
 
@@ -272,7 +358,7 @@ renderLastGrade();
                                 
                               
                                   start.addEventListener('click', startGame);
-                                  
+                                 goBack.addEventListener('click', startDiv);
 
 
 
