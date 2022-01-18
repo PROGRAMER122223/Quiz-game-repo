@@ -5,7 +5,7 @@ const quizData = [
         b: "Four",
         c: "Five",
         d: "Six",
-        correct: "btn4",
+        correct: "btn4"
 
     },
 
@@ -15,7 +15,7 @@ const quizData = [
         b:"enhance the document",
         c: "both A & B",
         d: "none of the above",
-        correct: "btn3",
+        correct: "btn3"
 
 
     },
@@ -26,7 +26,7 @@ const quizData = [
         b: "<br>",
         c: "<b>",
         d: "none of the above",
-        correct: "btn2",
+        correct: "btn2"
 
       },
 
@@ -36,7 +36,7 @@ const quizData = [
                     b: "ToolBar.",
                     c: "Location.",
                     d: "All Of the Above.",
-                    correct:"btn4",
+                    correct:"btn4"
       },
 
       {
@@ -64,12 +64,12 @@ const quizData = [
                                     const ans2 = document.querySelector("#btn2");
                                     const ans3 = document.querySelector("#btn3");
                                     const ans4 = document.querySelector("#btn4");
-                                    const submit = document.querySelector("#submit");
+                                  
                                     const parentOption = document.querySelector(".option");
                                     var timerElement = document.querySelector(".timer-count");
                                     const res=document.querySelector(".result");
-                                    
-
+                                    var savedName=document.getElementById("#last-name")
+                                    var submit = document.querySelector("#submit");
 
                                     let currentQuiz = 0;
                                     let score = 0;
@@ -103,10 +103,17 @@ const loadQuiz = () => {
                                     ans2.innerText = currentQuizData.b;
                                     ans3.innerText = currentQuizData.c;
                                     ans4.innerText = currentQuizData.d;
+//if(currentQuiz>currentQuizData.lenght){
+ // getScore();
+//}
+
+
 
 }
 //function selectAnswer(){
-
+//function getScore(){
+//  console.log("getscore");
+//}
 
 //}
 //loadQuiz();
@@ -122,7 +129,7 @@ const loadQuiz = () => {
 
 
 
-                                    if (clickedItem === quizData[currentQuiz].correct) {
+                                    if (clickedItem == quizData[currentQuiz].correct) {
                                        alert("correct");
                                     score++;
                                   
@@ -131,7 +138,7 @@ const loadQuiz = () => {
                                     //startTimer(totalCounter/2);
                                     {    alert("wrong");                                                        
                                                           
-                                                                                                                                     
+                                           let a="wrong"   ;                                                                                       
                                   
                                   }
 
@@ -139,9 +146,14 @@ const loadQuiz = () => {
                                     ////return(wrong )        
                                 
                                     currentQuiz++;
-                                    loadQuiz();
-                                     }
-
+                                    if(currentQuiz>4 ){
+                                      console.log("score is",score);
+                                      return score;
+                                    }
+                                    
+                                                                      
+                                     loadQuiz();
+                                    }
                                      // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
 function startTimer() {
     // Sets timer
@@ -171,7 +183,19 @@ function startTimer() {
     function myFunction(){
       const showDiv=document.querySelector(".quiz-container")
       const hideDiv=document.querySelector(".block-div");
-      
+    /*  const nameDiv=document.querySelector(".name-container");
+      const finalDiv=document.querySelector(".final-container");
+      if(nameDiv.style.display="none"){
+        nameDiv.style.display="block";
+      }else{
+        nameDiv.style.display="none";
+      }
+      if(finalDiv.style.display="none"){
+        finalDiv.style.display="block";
+      }else{
+        finalDiv.style.display="none";
+      }*/
+
         if(showDiv.style.display="none"){
           showDiv.style.display="block";
         }else{
@@ -185,11 +209,48 @@ function startTimer() {
       }
     
     }
+//function to save name entered
+//******************************************************************************************************88 */
+
+function saveLastGrade() {
+  // Save related form data as an object
+  var name = {
+    student: savedName.value.trim()
+    
+  };
+    
+   // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+  localStorage.setItem("savedName", JSON.stringify(name));
+  console.log("name saved ",name.student);
+}
+
+/*function renderLastname() {
+  // Use JSON.parse() to convert text to JavaScript object
+  var lastGrade = JSON.parse(localStorage.getItem("studentGrade"));
+  // Check if data is returned, if not exit out of the function
+  if (lastGrade !== null) {
+  document.getElementById("saved-name").innerHTML = lastGrade.student;
+  document.getElementById("saved-grade").innerHTML = lastGrade.grade;
+  document.getElementById("saved-comment").innerHTML = lastGrade.comment;
+  } else {
+    return;
+  }
+}*/
+
+/*submit.addEventListener("click", function(event) {
+event.preventDefault();
+saveLastGrade();
+renderLastGrade();
+});*/
 
 
-                                   parentOption.addEventListener("click", getCheckAnswer, false);
-                                 //  var checkans=getCheckAnswer;
-                                  // console.log(checkans);
+
+
+
+//******************************************************** */
+let checkAns=   parentOption.addEventListener("click", getCheckAnswer, false);
+                                  
+                                  console.log(checkAns);
                                     start.addEventListener('click', startGame);
                                     
 
