@@ -67,7 +67,7 @@ const quizData = [
                                 
                                   const parentOption = document.querySelector(".option");
                                   const timerElement = document.querySelector(".timer-count");
-                                  const res=document.querySelector(".result");
+                                  const resLt=document.querySelector(".result");
                                   const stdentName = document.querySelector("#last-name");
                                   const submit = document.querySelector("#submit");
                                   const scoreValue = document.querySelector("#scoreValue");
@@ -78,8 +78,9 @@ const quizData = [
                                   const finalDiv=document.querySelector(".final-container");
 
                                   const goBack=document.querySelector("go-back");
+                                  const clearHighScore = document.querySelector("#clear");
 
-                                 
+                                 let isCorrect;
                                   let currentQuiz = 0;
                                   let score = 0;
                                   let timer;
@@ -103,6 +104,8 @@ const loadQuiz = () => {
   //deselectAnswer();
   //console.log(answerEls)
   //questionEl.innerHTML=quizData[0].question;
+  inputSetCorrect();
+  inputSetWrong();
   let currentQuizData = quizData[currentQuiz];
                                   questionEl.innerText = currentQuizData.question;
 
@@ -135,26 +138,29 @@ const loadQuiz = () => {
                                       var clickedItem = e.target.id;
                                      //alert("hello" + clickedItem);
                                     }
+                                            if (clickedItem ==quizData[currentQuiz].correct) {
+                                     //alert("correct");
+                                                  isCorrect=true;
+                                                         score++;
+                                                                                                                                       
+                                            
+                                                 } else{
 
+                                              isCorrect=false;
 
-
-                                  if (clickedItem ==quizData[currentQuiz].correct) {
-                                     alert("correct");
-                                  score++;
+                                                 }
+                                  //startTimer(totalCounter/2);
+                                                                                            
+                                                                                                                    
                                 
                               
-                                  } else
-                                  //startTimer(totalCounter/2);
-                                  {    alert("wrong");                                                        
-                                                        
-                                         let a="wrong"   ;                                                                                       
-                                
-                                }
 
                                   //console.log(quizData[currentQuiz].correct); 
                                   ////return(wrong )        
                               
                                   currentQuiz++;
+                                 
+
                                   if(currentQuiz>1){
                                     console.log("score is",score);
                                    // window.sessionStorage
@@ -179,7 +185,27 @@ const loadQuiz = () => {
                                    loadQuiz();
                                   }
                                    // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
-function startTimer() {
+
+
+                 function inputSetCorrect(){
+                   if(isCorrect){
+
+                    alert("helloo correct");
+                   //resLt.innerHTML="correct";
+                                    }}
+                function inputSetWrong(){
+                  if(!isCorrect){
+                   alert("hellooooo wrong");
+
+                  //resLt.innerHTML="wrong";
+                }}
+
+
+
+
+
+
+  function startTimer() {
   // Sets timer
   timer = setInterval(function() {
     timerCount--;
@@ -234,7 +260,7 @@ function startTimer() {
   
   }
 //*******************************code to save data *****************************************/
-let studentData=[];
+/*let studentData=[];
 function saveLastData() {
   // Save related form data as an object
   /*if(finalDiv.style.display="none"){
@@ -246,7 +272,7 @@ function saveLastData() {
   }
   hideDiv.style.display = "none";
   showDiv.style.display = "none";
-  nameDiv.style.display = "none";*/
+  nameDiv.style.display = "none";
   
 
   studentData.score= scoreValue.value;
@@ -259,7 +285,7 @@ function saveLastData() {
     student: stdentName.value
   
   }]; */ // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
- localStorage.setItem("studentData", JSON.stringify(studentData));
+ /*localStorage.setItem("studentData", JSON.stringify(studentData));
 }
 
 function renderLastData() {
@@ -310,6 +336,16 @@ event.preventDefault();
 saveLastData();
 renderLastData();
 });
+//**************************************************************************************************** */
+/*var clearHighScoreFunction = document.querySelector("#clear");
+
+function clearHighScore() {
+  // Resets win and loss counts
+  
+  // Renders win and loss counts and sets them into client storage
+
+}
+// Attaches event listener to button*/
 
 
 
@@ -351,15 +387,15 @@ saveLastGrade();
 renderLastGrade();
 });*/
 //sessionStorage.setItem('score',score);
-//console.log(sessionStorage.getItem(score));
+//console.log(sessionStorage.getItem(score));/*
 
-//******************************************************** */
+//******************************************************** */*/
                            parentOption.addEventListener("click", getCheckAnswer, false);
                                 
                               
                                   start.addEventListener('click', startGame);
                                  goBack.addEventListener('click', startDiv);
-
+                                // clearHighScore.addEventListener("click",clearHighScoreFunction );
 
 
 
