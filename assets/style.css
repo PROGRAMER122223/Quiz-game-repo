@@ -24,7 +24,7 @@ h1{
       position: relative;
     }
 
-.load-page-container,.name-container,.final-container
+.load-page-container
     {
       
         
@@ -39,7 +39,8 @@ h1{
       
 
 }
-.quiz-container{
+.quiz-container,.name-container,.final-container
+{
   display:none;
   position:absolute;
   margin-left:auto;
