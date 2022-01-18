@@ -80,7 +80,7 @@ const quizData = [
                                   const goBack=document.querySelector("go-back");
                                   const clearHighScore = document.querySelector("#clear");
 
-                                 let isCorrect;
+                                  let isCorrect;
                                   let currentQuiz = 0;
                                   let score = 0;
                                   let timer;
@@ -104,8 +104,9 @@ const loadQuiz = () => {
   //deselectAnswer();
   //console.log(answerEls)
   //questionEl.innerHTML=quizData[0].question;
-  inputSetCorrect();
-  inputSetWrong();
+  
+  //inputSetCorrect();
+  //inputSetWrong();
   let currentQuizData = quizData[currentQuiz];
                                   questionEl.innerText = currentQuizData.question;
 
@@ -122,6 +123,8 @@ const loadQuiz = () => {
 
 
 }
+
+
 //function selectAnswer(){
 //function getScore(){
 //  console.log("getscore");
@@ -138,9 +141,11 @@ const loadQuiz = () => {
                                       var clickedItem = e.target.id;
                                      //alert("hello" + clickedItem);
                                     }
+
+                                
                                             if (clickedItem ==quizData[currentQuiz].correct) {
                                      //alert("correct");
-                                                  isCorrect=true;
+                                                 isCorrect=true;
                                                          score++;
                                                                                                                                        
                                             
@@ -151,7 +156,8 @@ const loadQuiz = () => {
                                                  }
                                   //startTimer(totalCounter/2);
                                                                                             
-                                                                                                                    
+                                                       inputSetCorrect();   
+                                                       inputSetWrong();                                                        
                                 
                               
 
@@ -186,16 +192,29 @@ const loadQuiz = () => {
                                   }
                                    // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
 
-
+                  
                  function inputSetCorrect(){
+                   
                    if(isCorrect){
 
                     alert("helloo correct");
+                   // var x = document.createElement("INPUT");
+                   // x.setAttribute("type", "text");
+                    resLt.setAttribute("value","correct");
+                   // document.body.appendChild(x);
+                  }
                    //resLt.innerHTML="correct";
-                                    }}
+                   //console.log(resLt.innerHTML);
+                                    }
                 function inputSetWrong(){
                   if(!isCorrect){
                    alert("hellooooo wrong");
+
+                   //var x = document.createElement("INPUT");
+                   //x.setAttribute("type", "text");
+                  resLt.setAttribute("value","wrong");
+                  // document.body.appendChild(x);
+                 
 
                   //resLt.innerHTML="wrong";
                 }}
