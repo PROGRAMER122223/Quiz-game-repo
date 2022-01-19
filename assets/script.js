@@ -68,6 +68,7 @@ const quizData = [
                                   const parentOption = document.querySelector(".option");
                                   const timerElement = document.querySelector(".timer-count");
                                   const resLt=document.querySelector(".result");
+                                  const resLt1=document.querySelector(".result1");
                                   const stdentName = document.querySelector("#last-name");
                                   const submit = document.querySelector("#submit");
                                   const scoreValue = document.querySelector("#scoreValue");
@@ -121,8 +122,10 @@ const loadQuiz = () => {
 //}
 
 
-
+  
 }
+
+
 
 
 //function selectAnswer(){
@@ -181,13 +184,26 @@ const loadQuiz = () => {
                                     hideDiv.style.display = "none";
                                     showDiv.style.display = "none";
                                     finalDiv.style.display = "none";
-                                     
-                                    scoreValue.innerHTML=score;
-                                 // sessionStorage.setItem('score','score');
+
+
+                                   if(isCorrect){
+                                   resLt1.setAttribute("value","correct");
+                                  }
+                                   else{
+                                         resLt1.setAttribute("value","wrong");
+                                                         
+                                   }
+                 
+                                    // scoreValue='${score}'.html;
+
+                                    scoreValue.innerHTML=parseFloat(score);
+                                   // scoreValue.setAttribute("value","score");
+              //localStorage.setItem('score','score');
+                                //  console.log(localStorage.getItem(score));
                                  
                                   }
                                   
-                                                                    
+                                   resLt.style.display="block" ;                                
                                    loadQuiz();
                                   }
                                    // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -264,7 +280,7 @@ const loadQuiz = () => {
     }else{
       finalDiv.style.display="none";
     }*/
-
+       resLt.style.display="none";
       if(showDiv.style.display="none"){
         showDiv.style.display="block";
       }else{
@@ -279,32 +295,17 @@ const loadQuiz = () => {
   
   }
 //*******************************code to save data *****************************************/
-/*let studentData=[];
+let studentData=[""];
 function saveLastData() {
   // Save related form data as an object
-  /*if(finalDiv.style.display="none"){
-    finalDiv.style.display="block";
-    
-  }else{
-  finalDiv.style.display="none";
-    
-  }
-  hideDiv.style.display = "none";
-  showDiv.style.display = "none";
-  nameDiv.style.display = "none";
-  
-
-  studentData.score= scoreValue.value;
-  studentData.student=stdentName.value;
-  console.log(studentData.score);
-  console.log(studentData.student);
-  /*let studentData =[{
+  const studentData ={
     
     score: scoreValue.value,
     student: stdentName.value
   
-  }]; */ // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
- /*localStorage.setItem("studentData", JSON.stringify(studentData));
+  };  // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+ localStorage.setItem("studentData", JSON.stringify(studentData));
+ console.log(studentData);
 }
 
 function renderLastData() {
@@ -329,7 +330,7 @@ function renderLastData() {
   if (lastData !== null) {
   document.getElementById("#saved-name").innerHTML = lastData.student;
   document.getElementById("#score-value").innerHTML = lastData.score;
-  
+  console.log(lastData);
   } else {
     return;
   }
@@ -339,7 +340,7 @@ function renderLastData() {
 
 
 
-function startDiv()
+/*function startDiv()
 { if(finalDiv.style.display="none"){
   finalDiv.style.display="block";
   
@@ -349,7 +350,7 @@ finalDiv.style.display="none";
 
 }
 }
-
+*/
 submit.addEventListener("click", function(event) {
 event.preventDefault();
 saveLastData();
@@ -360,55 +361,8 @@ renderLastData();
 
 function clearHighScore() {
   // Resets win and loss counts
-  
-  // Renders win and loss counts and sets them into client storage
 
-}
-// Attaches event listener to button*/
-
-
-
-
-
-
-
-//function to save name entered
-//******************************************************************************************************88 */
-
-/*function saveLastGrade() {
-// Save related form data as an object
-var name = {
-  student: savedName.value.trim()
-  
-};
-  
- // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
-localStorage.setItem("savedName", JSON.stringify(name));
-console.log("name saved ",name.student);
-}*/
-
-/*function renderLastname() {
-// Use JSON.parse() to convert text to JavaScript object
-var lastGrade = JSON.parse(localStorage.getItem("studentGrade"));
-// Check if data is returned, if not exit out of the function
-if (lastGrade !== null) {
-document.getElementById("saved-name").innerHTML = lastGrade.student;
-document.getElementById("saved-grade").innerHTML = lastGrade.grade;
-document.getElementById("saved-comment").innerHTML = lastGrade.comment;
-} else {
-  return;
-}
-}*/
-
-/*submit.addEventListener("click", function(event) {
-event.preventDefault();
-saveLastGrade();
-renderLastGrade();
-});*/
-//sessionStorage.setItem('score',score);
-//console.log(sessionStorage.getItem(score));/*
-
-//******************************************************** */*/
+//******************************************************** */
                            parentOption.addEventListener("click", getCheckAnswer, false);
                                 
                               
