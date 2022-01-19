@@ -121,6 +121,12 @@ const loadQuiz = () => {
 
 
 
+function closeresLt1(){
+  resLt1.style.display=" none";
+  }
+
+
+
 
                                 const getCheckAnswer = (e) => {
                                       e.stopPropagation();
@@ -168,9 +174,16 @@ const loadQuiz = () => {
 
                                    if(isCorrect){
                                    resLt1.setAttribute("value","correct");
+                                   const timeout=setTimeout(closeresLt1, 2000);
+                                                           
+                                 
+
                                   }
                                    else{
                                          resLt1.setAttribute("value","wrong");
+                                         const timeout=setTimeout(closeresLt, 2000);
+                                         //window.setTimeout("closeresLt1", 5000);
+                                      
                                                          
                                    }
                  
@@ -302,7 +315,7 @@ function renderLastData() {
 
 
 function startDiv(e){
-  
+  e.stopPropagation();
 
  if(finalDiv.style.display="none"){
   finalDiv.style.display="block";
@@ -323,8 +336,8 @@ renderLastData();
 //**************************************************************************************************** */
 
 var clearScore=document.querySelector(".clearScore");
-function clearHighScoreFunction() {
-
+function clearHighScoreFunction(e) {
+e.stopPropagation();
   
   clearScore.setAttribute("display:none");
   
@@ -339,7 +352,32 @@ function maiNFunction(e){
   e.stopPropagation();
 }
 
+function hideDivFunction(e){
+  e.stopPropagation();
+}
+function showDivFunction(e){
+  e.stopPropagation();
+}
+
+function nameDivFunction(e){
+  e.stopPropagation();
+}
+
+function finalDivFunction(e){
+  e.stopPropagation();
+}
+
+function maiNFunction(e){
+  e.stopPropagation();
+}
+
+
 maiN.addEventListener("click",maiNFunction,false);
+hideDiv.addEventListener("click",hideDivFunction,false);
+showDiv.addEventListener("click",showDivFunction,false);
+nameDiv.addEventListener("click",nameDivFunction,false);
+finalDiv.addEventListener("click",finalDivFunction,false);
+
 
 
 
