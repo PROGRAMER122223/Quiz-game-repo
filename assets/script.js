@@ -89,8 +89,9 @@ const quizData = [
                                   const savedName =document.querySelector("#saved-name");
                                   const  valueScored=document.querySelector("#score-value");
 
-
-
+                                  const vaLue=document.querySelector("#value");
+                                  const highScore=document.querySelector("#high-score");
+ 
                                   let isCorrect;
                                   let currentQuiz = 0;
                                   let score = 0;
@@ -177,6 +178,7 @@ const loadQuiz = () => {
 
                                     scoreValue.innerHTML=score;
                                     scoreGot.innerHTML=score;
+                                    vaLue.innerHTML=score;
                                    // scoreValue.setAttribute("value","score");
               //localStorage.setItem('score','score');
                                 //  console.log(localStorage.getItem(score));
@@ -184,7 +186,7 @@ const loadQuiz = () => {
                                   }
                                   
                                    resLt.style.display="block" ;   
-                                   alert(quizData.length);                             
+                                   //alert(quizData.length);                             
                                    loadQuiz();
                                   }
                                    // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -239,6 +241,7 @@ const loadQuiz = () => {
 ///function myFunction
 
   function myFunction(){
+    //e.stopPropagation();
        resLt.style.display="none";
       if(showDiv.style.display="none"){
         showDiv.style.display="block";
@@ -275,6 +278,8 @@ function renderLastData() {
   finalDiv.style.display="none";
     
   }
+   highScore.style.display="none";
+   timerElement.style.display="none";
   hideDiv.style.display = "none";
   showDiv.style.display = "none";
   nameDiv.style.display = "none";
@@ -293,10 +298,12 @@ function renderLastData() {
   }
 }
 
+ 
+
 
 function startDiv(e){
-  e.stopPropagation();
-  e.preventDefault();
+  
+
  if(finalDiv.style.display="none"){
   finalDiv.style.display="block";
   
@@ -307,6 +314,7 @@ finalDiv.style.display="none";
 }
 }
 
+
 submit.addEventListener("click", function(event) {
 event.preventDefault();
 saveLastData();
@@ -315,15 +323,26 @@ renderLastData();
 //**************************************************************************************************** */
 
 var clearScore=document.querySelector(".clearScore");
-function clearHighScoreFunction(e) {
-  e.stopPropagation();
-  e.preventDefault();
+function clearHighScoreFunction() {
+
+  
   clearScore.setAttribute("display:none");
   
   
 }
 
+
 ///******************************************************** */
+//set stopPrapagation to main Div
+const maiN=document.querySelector(".load-page-container");
+function maiNFunction(e){
+  e.stopPropagation();
+}
+
+maiN.addEventListener("click",maiNFunction,false);
+
+
+
 //background colors to list option
 option.setAttribute("style", "background:#C8C8C8	; padding:16px;");
 // Add styling to list items
@@ -336,7 +355,7 @@ list4.setAttribute("style", " color:black; background: #FFFFFF	; padding: 3px; m
 
                            parentOption.addEventListener("click", getCheckAnswer, false);
                                 
-                              
+                      
                                   start.addEventListener('click', startGame);
-                                 goBack.addEventListener('click', startDiv(e));
-                                clearHighScore.addEventListener("click",clearHighScoreFunction(e));
+                                 goBack.addEventListener('click', startDiv);
+                                clearHighScore.addEventListener("click",clearHighScoreFunction);
