@@ -57,9 +57,7 @@ const quizData = [
                                   const quiz = document.querySelector("quiz");
                                   const answerEls = document.querySelectorAll(".answer");
                                   const questionEl = document.querySelector(".question");
-                                  //var btn=getElementById("#submit");
-                                  // const a = document.getElementById("a-text");
-                                  // const b = document.getElementById("b-text") ;
+                                  
                                   const ans1 = document.querySelector("#btn1");
                                   const ans2 = document.querySelector("#btn2");
                                   const ans3 = document.querySelector("#btn3");
@@ -72,6 +70,7 @@ const quizData = [
                                   const stdentName = document.querySelector("#last-name");
                                   const submit = document.querySelector("#submit");
                                   const scoreValue = document.querySelector("#scoreValue");
+                                  const scoreGot = document.querySelector("#score");
 
                                   const showDiv=document.querySelector(".quiz-container");
                                   const hideDiv=document.querySelector(".block-div");
@@ -81,64 +80,48 @@ const quizData = [
                                   const goBack=document.querySelector("go-back");
                                   const clearHighScore = document.querySelector("#clear");
 
+                                  const option=document.querySelector(".option");
+                                  const list1=document.querySelector(".li1");
+                                  const list2=document.querySelector(".li2");
+                                  const list3 =document.querySelector(".li3");
+                                  const list4=document.querySelector(".li4");
+                                 
+                                  const savedName =document.querySelector("#saved-name");
+                                  const  valueScored=document.querySelector("#score-value");
+
+
+
                                   let isCorrect;
                                   let currentQuiz = 0;
                                   let score = 0;
                                   let timer;
                                   let timerCount;
                                   let answerCounter = 0;
-/*function init() {
-
-                                      getHighScore();
-}
-                                  */
-const startGame = () => {
+                                  
+                                  const startGame = () => {
                                       startTimer();
                                      
                                       timerCount = 75;
                                       myFunction();
                                   loadQuiz();
-}
+                                 }
 
 const loadQuiz = () => {
-  //timerCount=75;
-  //deselectAnswer();
-  //console.log(answerEls)
-  //questionEl.innerHTML=quizData[0].question;
   
-  //inputSetCorrect();
-  //inputSetWrong();
   let currentQuizData = quizData[currentQuiz];
                                   questionEl.innerText = currentQuizData.question;
 
-                                  // a.innerText = currentQuizData.a;
-                                  // b.innerText = currentQuizData.b;
                                   ans1.innerText = currentQuizData.a;
                                   ans2.innerText = currentQuizData.b;
                                   ans3.innerText = currentQuizData.c;
                                   ans4.innerText = currentQuizData.d;
-//if(currentQuiz>currentQuizData.lenght){
-// getScore();
-//}
-
-
-  
+ 
 }
 
 
 
 
-//function selectAnswer(){
-//function getScore(){
-//  console.log("getscore");
-//}
-
-//}
-//loadQuiz();
-
-
-//get the clicked element id and get results and loads new question
-                                    const getCheckAnswer = (e) => {
+                                const getCheckAnswer = (e) => {
                                       e.stopPropagation();
                                   if (e.target !== e.currentTarget) {
                                       var clickedItem = e.target.id;
@@ -155,22 +138,18 @@ const loadQuiz = () => {
                                                  } else{
 
                                               isCorrect=false;
-
-                                                 }
+                                              timerCount-=15;//decrement timer.
+                                                 }  
                                   //startTimer(totalCounter/2);
                                                                                             
                                                        inputSetCorrect();   
                                                        inputSetWrong();                                                        
-                                
-                              
-
-                                  //console.log(quizData[currentQuiz].correct); 
-                                  ////return(wrong )        
-                              
+                                                    
+                                  
                                   currentQuiz++;
                                  
 
-                                  if(currentQuiz>1){
+                                  if(currentQuiz>=quizData.length){
                                     console.log("score is",score);
                                    // window.sessionStorage
                                     //setItem(score);
@@ -196,14 +175,16 @@ const loadQuiz = () => {
                  
                                     // scoreValue='${score}'.html;
 
-                                    scoreValue.innerHTML=parseFloat(score);
+                                    scoreValue.innerHTML=score;
+                                    scoreGot.innerHTML=score;
                                    // scoreValue.setAttribute("value","score");
               //localStorage.setItem('score','score');
                                 //  console.log(localStorage.getItem(score));
                                  
                                   }
                                   
-                                   resLt.style.display="block" ;                                
+                                   resLt.style.display="block" ;   
+                                   alert(quizData.length);                             
                                    loadQuiz();
                                   }
                                    // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -212,8 +193,7 @@ const loadQuiz = () => {
                  function inputSetCorrect(){
                    
                    if(isCorrect){
-
-                    alert("helloo correct");
+                   // alert("helloo correct");
                    // var x = document.createElement("INPUT");
                    // x.setAttribute("type", "text");
                     resLt.setAttribute("value","correct");
@@ -224,21 +204,15 @@ const loadQuiz = () => {
                                     }
                 function inputSetWrong(){
                   if(!isCorrect){
-                   alert("hellooooo wrong");
-
+                   //alert("hellooooo wrong");
                    //var x = document.createElement("INPUT");
                    //x.setAttribute("type", "text");
                   resLt.setAttribute("value","wrong");
                   // document.body.appendChild(x);
-                 
-
-                  //resLt.innerHTML="wrong";
+                                   //resLt.innerHTML="wrong";
                 }}
 
-
-
-
-
+//timer function
 
   function startTimer() {
   // Sets timer
@@ -247,7 +221,7 @@ const loadQuiz = () => {
     timerElement.textContent = timerCount;
     if (timerCount >= 0) {
       // Tests if win condition is met
-      if (currentQuiz==5 && timerCount > 0) {
+      if (currentQuiz==quizData.length && timerCount > 0) {
         // Clears interval and stops timer
         clearInterval(timer);
       
@@ -262,24 +236,9 @@ const loadQuiz = () => {
   }, 1000);
 }
                                  
-//let scoreGot=sessionStorage.getItem("score");
-//console.log(scoreGot);
-
+///function myFunction
 
   function myFunction(){
-    //const showDiv=document.querySelector(".quiz-container")
-    //const hideDiv=document.querySelector(".block-div");
-  // const nameDiv=document.querySelector(".name-container");
-   /*     if(nameDiv.style.display="none"){
-      nameDiv.style.display="block";
-    }else{
-      nameDiv.style.display="none";
-    }
-    if(finalDiv.style.display="none"){
-      finalDiv.style.display="block";
-    }else{
-      finalDiv.style.display="none";
-    }*/
        resLt.style.display="none";
       if(showDiv.style.display="none"){
         showDiv.style.display="block";
@@ -295,17 +254,17 @@ const loadQuiz = () => {
   
   }
 //*******************************code to save data *****************************************/
-let studentData=[""];
+let studentGrade=[""];
 function saveLastData() {
   // Save related form data as an object
-  const studentData ={
+  const studentGrade = {
     
-    score: scoreValue.value,
+    score: scoreGot.value,
     student: stdentName.value
   
   };  // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
- localStorage.setItem("studentData", JSON.stringify(studentData));
- console.log(studentData);
+ localStorage.setItem("studentGrade", JSON.stringify(studentGrade));
+ 
 }
 
 function renderLastData() {
@@ -322,26 +281,23 @@ function renderLastData() {
   
 
 
-
-
   // Use JSON.parse() to convert text to JavaScript object
-  let lastData = JSON.parse(localStorage.getItem("studentData"));
+  const lastGrade = JSON.parse(localStorage.getItem("studentGrade"));
   // Check if data is returned, if not exit out of the function
-  if (lastData !== null) {
-  document.getElementById("#saved-name").innerHTML = lastData.student;
-  document.getElementById("#score-value").innerHTML = lastData.score;
-  console.log(lastData);
-  } else {
-    return;
+  if (lastGrade !== null) {
+  
+  document.getElementById("saved-name").innerHTML = lastGrade.student;
+  document.getElementById("score-value").innerHTML = lastGrade.score;
+  
+
   }
 }
 
 
-
-
-
-/*function startDiv()
-{ if(finalDiv.style.display="none"){
+function startDiv(e){
+  e.stopPropagation();
+  e.preventDefault();
+ if(finalDiv.style.display="none"){
   finalDiv.style.display="block";
   
 }else{
@@ -350,28 +306,37 @@ finalDiv.style.display="none";
 
 }
 }
-*/
+
 submit.addEventListener("click", function(event) {
 event.preventDefault();
 saveLastData();
 renderLastData();
 });
 //**************************************************************************************************** */
-/*var clearHighScoreFunction = document.querySelector("#clear");
 
-function clearHighScore() {
-  // Resets win and loss counts
+var clearScore=document.querySelector(".clearScore");
+function clearHighScoreFunction(e) {
+  e.stopPropagation();
+  e.preventDefault();
+  clearScore.setAttribute("display:none");
+  
+  
+}
 
-//******************************************************** */
+///******************************************************** */
+//background colors to list option
+option.setAttribute("style", "background:#C8C8C8	; padding:16px;");
+// Add styling to list items
+list1.setAttribute("style", " color:black; background: #FFFFFF	; padding: 3px; margin-left: 25px;");
+list2.setAttribute("style", " color:black; background: #FFFFFF	; padding: 3px; margin-left: 25px;");
+list3.setAttribute("style", " color:black; background: #FFFFFF; padding: 3px; margin-left: 25px;");
+list4.setAttribute("style", " color:black; background: #FFFFFF	; padding: 3px; margin-left: 25px;");
+
+
+
                            parentOption.addEventListener("click", getCheckAnswer, false);
                                 
                               
                                   start.addEventListener('click', startGame);
-                                 goBack.addEventListener('click', startDiv);
-                                // clearHighScore.addEventListener("click",clearHighScoreFunction );
-
-
-
-                                  
-                                       
-                                  
+                                 goBack.addEventListener('click', startDiv(e));
+                                clearHighScore.addEventListener("click",clearHighScoreFunction(e));
