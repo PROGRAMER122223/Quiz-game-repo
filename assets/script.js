@@ -342,9 +342,9 @@ submit.addEventListener("click", function (event) {
 var clearScore = document.querySelector(".clearScore");
 function clearHighScoreFunction(e) {
   e.preventDefault();
-  localStorage.setItem("studentGrade", JSON.stringify({ 
-    score:"",student:""
-  }));
+  //localStorage.setItem("studentGrade", JSON.stringify({ 
+   // score:"",student:""
+ // }));
 
   clearScore.style.display ="none";
 

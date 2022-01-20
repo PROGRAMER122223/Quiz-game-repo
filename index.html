@@ -13,7 +13,7 @@
 <body>
 
 <div class="load-page-container">
-       <div class="block-div">           
+      <div class="block-div">           
               <div class ="header" ><h1>Coding Quiz Challenge</h1>
               </div>
               <div><p> Start a quiz by ckicking START QUIZ button below for 75 secs.
@@ -26,12 +26,12 @@
              
               
                 <div>
-                 <h2  id="high-score">high score scored</h2>
+                 <h2  id="high-score">high score scored:<span id="value"></span></h2>
                </div>
                 
                 <div class= "card timer">
                          <div class = "timer-text">
-                               <div class="large-font timer-count">75</div>
+                               <div class="large-font timer-count">0</div>
                       
                           </div>
               
@@ -46,10 +46,10 @@
               
                         <ol class="option">
               
-                               <li><button name="answer" class="answer" id="btn1">anwser</button></li>
-                               <li><button name="answer" class="answer" id="btn2"></button></li>
-                               <li><button name="answer" class="answer" id="btn3"></button></li>
-                               <li><button name="answer" class="answer" id="btn4"></button></li>
+                               <li class="li1"><button name="answer" class="answer" id="btn1">anwser</button></li>
+                               <li class="li2"><button name="answer" class="answer" id="btn2"></button></li>
+                               <li class="li3"><button name="answer" class="answer" id="btn3"></button></li>
+                               <li class="li4"><button name="answer" class="answer" id="btn4"></button></li>
                          
                        </ol>
                       <input type="text" class="result">
@@ -62,15 +62,20 @@
              <div class="name-container">
                         <div class="card">
                                    <h1>All done!</h1>
-                                   <p>your final score is : <span id="scoreValue"></span> </p>
+                                  <p>your final score is : <span id="scoreValue"></span> </p>
               
-                            <form>                    
-                      
+                                             
+                            <form >
+                               <label for="name">Score</label>
+                              <input type="text" name="score" id="score" placeholder="score" />
+                             
+
                             <label for="name">Student Name</label>
                             <input type="text" name="last-name" id="last-name" placeholder="name" />
                                           
                                <button id="submit">Submit</button>
                             </form>    
+                            <input type="text" class="result1">
                          </div>
               
               </div>
@@ -80,10 +85,10 @@
                             <div class="card">
                                 <h1>Highscores</h1>
                    
-                                <p>1.<span id="score-value"></span></p>
+                                <p class="clearScore">1.<span id="saved-name"></span>-<span id="score-value"></span></p>
                         
                             <form>
-                                <button id="go-back">Go Back</button>
+                                <button id="go-back" >Go Back</button>
                                  <button id="clear">Clear Highscores</button>
                              </form>    
                              </div>
