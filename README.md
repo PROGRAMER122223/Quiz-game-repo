@@ -33,10 +33,10 @@ THEN I can save my initials and my score
 The following animation demonstrates the application functionality:
 
 
-![pic](./)
+![pic](./assets.pic1.png)
 
 
-)
+
 
 
 
