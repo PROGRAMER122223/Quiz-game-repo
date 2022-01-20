@@ -32,6 +32,15 @@ THEN I can save my initials and my score
 
 The following animation demonstrates the application functionality:
 
+
+![pic](./)
+
+
+)
+
+
+
+
 ## Build status
 ## Features
 1.Implemented code to traverse thruogh parent element instead of traversing each child element 
