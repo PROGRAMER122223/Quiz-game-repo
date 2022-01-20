@@ -31,17 +31,11 @@ THEN I can save my initials and my score
 ## Mock-Up
 
 The following animation demonstrates the application functionality:
-
-
-![pic](./assets.pic1.png)
-
-
-
-
-
+![pic](Quiz-game-repo\assets\picture.png)
 
 
 ## Build status
+Issue with clear highscore button needs to be solved.Need a clear concept stopPropagation method.
 ## Features
 1.Implemented code to traverse thruogh parent element instead of traversing each child element 
 ```javascript
