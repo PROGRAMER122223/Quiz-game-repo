@@ -51,3 +51,6 @@ const getCheckAnswer=(e)=>{
 [timeOut()](https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_settimeout_cleartimeout
 
 
+## URL
+[Deployed URL](https://programer122223.github.io/Quiz-game-repo/)
+[github ](https://github.com/PROGRAMER122223/Quiz-game-repo.git)
