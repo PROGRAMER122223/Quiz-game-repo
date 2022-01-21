@@ -345,7 +345,7 @@ function clearHighScoreFunction(e) {
   //localStorage.setItem("studentGrade", JSON.stringify({ 
    // score:"",student:""
  // }));
-
+ //location.reload();
   clearScore.style.display ="none";
 
 
@@ -354,7 +354,7 @@ function clearHighScoreFunction(e) {
 
 ///******************************************************** */
 //set stopPrapagation to main Div
-const maiN = document.querySelector(".load-page-container");
+/*const maiN = document.querySelector(".load-page-container");
 function maiNFunction(e) {
   e.stopPropagation();
 }
@@ -383,8 +383,7 @@ maiN.addEventListener("click", maiNFunction, false);
 hideDiv.addEventListener("click", hideDivFunction, false);
 showDiv.addEventListener("click", showDivFunction, false);
 nameDiv.addEventListener("click", nameDivFunction, false);
-finalDiv.addEventListener("click", finalDivFunction, false);
-
+finalDiv.addEventListener("click", finalDivFunction, false);*/
 
 
 
