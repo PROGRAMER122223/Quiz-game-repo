@@ -31,7 +31,7 @@ THEN I can save my initials and my score
 ## Mock-Up
 
 The following animation demonstrates the application functionality:
-![pic](C:\Users\indel\Quiz-game-repo\Quiz-game-repo\assets\quizpic.jpg)
+<img src="Quiz-game-repo\assets\quizpic.jpg" height="100" width="auto">
 
 
 ## Build status
