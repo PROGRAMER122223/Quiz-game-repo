@@ -30,7 +30,7 @@ THEN I can save my initials and my score
 ## Mock-Up
 
 The following animation demonstrates the application functionality:
-![img](assets/quizpic.jpg)
+![img](assets/quiz.gif)
 
 
 ## Build status
@@ -50,7 +50,7 @@ const getCheckAnswer=(e)=>{
 [get input value](https://www.tabnine.com/academy/javascript/get-value-of-input/)
 
 
-[Position element]( https://www.w3schools.com/css/css_positioning.as)
+[Position-element]( https://www.w3schools.com/css/css_positioning.as)
 
 
 [timeOut()](https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_settimeout_cleartimeout
