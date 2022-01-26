@@ -1,10 +1,9 @@
-# Code Quiz
+# Code Quiz 
 
-## Task accomplished
-    This is a quiz Game developed using HTML,CSS and Java Script.
-    It is a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code with a resposive user interface.
+  This is a quiz Game developed using HTML,CSS and Java Script.
+  It is a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code with a resposive user interface.
 
-  ## User Story
+## User Story
 
 ```
 AS A coding boot camp student
@@ -35,7 +34,8 @@ The following animation demonstrates the application functionality:
 
 
 ## Build status
-Issue with clear highscore button needs to be solved.Need a clear concept stopPropagation method.
+Issue with clear highscore button needs to be solved.Need a clear concept of stopPropagation method.
+
 ## Features
 1.Implemented code to traverse thruogh parent element instead of traversing each child element 
 ```javascript
@@ -45,15 +45,19 @@ const getCheckAnswer=(e)=>{
      alert("hello"+clickedItem);
  }
 }
-````
+```
 ## API reference
 [get input value](https://www.tabnine.com/academy/javascript/get-value-of-input/)
 
+
 [Position element]( https://www.w3schools.com/css/css_positioning.as)
+
 
 [timeOut()](https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_settimeout_cleartimeout
 
 
 ## URL
+
 [Deployed URL](https://programer122223.github.io/Quiz-game-repo/)
+
 [github ](https://github.com/PROGRAMER122223/Quiz-game-repo.git)
