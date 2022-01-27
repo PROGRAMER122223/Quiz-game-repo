@@ -78,13 +78,13 @@ P{
   text-transform: uppercase;
   border-radius: 10px;
   margin: 0;
-  position: absolute;
+
   top: 60%;
   left:50%;
   -ms-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
 }
-#submit,#go-back,#clear{
+#submit,#go-back,#close{
   background-color: rgb(224, 19, 53);
   color: white;
   border-radius: 10px;

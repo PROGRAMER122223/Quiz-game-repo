@@ -77,8 +77,8 @@ const hideDiv = document.querySelector(".block-div");
 const nameDiv = document.querySelector(".name-container");
 const finalDiv = document.querySelector(".final-container");
 
-const goBack = document.querySelector("go-back");//button
-const clearHighScore = document.querySelector("#clear");//button
+const goBack = document.querySelector("#go-back");//button
+const clearHighScore= document.querySelector("#close");//button
 
 const option = document.querySelector(".option");
 const list1 = document.querySelector(".li1");//answers
@@ -91,6 +91,7 @@ const valueScored = document.querySelector("#score-value");//scored value
 
 const vaLue = document.querySelector("#value");
 const highScore = document.querySelector("#high-score");//high score
+const clearScore = document.querySelector(".clearScore");//clears scores
 
 let isCorrect;
 let currentQuiz = 0;
@@ -306,17 +307,13 @@ function renderLastData() {
 
 
 
-function startDiv(e) {
-  e.stopPropagation();
-
-  if (finalDiv.style.display = "none") {
-    finalDiv.style.display = "block";
-
-  } else {
+function startDiv() {
+ // e.stopPropagation();
+//console.log("inside startDiv");
     finalDiv.style.display = "none";
-
-
-  }
+    hideDiv.style.display="block";//first div with start button will appeear
+    location.reload();//refreshes current div
+  
 }
 
 submit.addEventListener("click", function (event) {//submit button to set n get data
@@ -326,14 +323,12 @@ submit.addEventListener("click", function (event) {//submit button to set n get 
 });
 //**************************************************************************************************** */
 
-let clearScore = document.querySelector(".clearScore");//clears scores
-function clearHighScoreFunction(e) {
-  e.preventDefault();
-  localStorage.setItem("studentGrade", JSON.stringify({ 
-   score:"",student:""
-  }));
- //location.reload();
-  clearScore.style.display ="none";
+
+function clearFunction() {
+ 
+ //console.log("inside clearFunction");
+  clearScore.style.display ="none";//makes <p> element to disappear
+
 }
 
 
@@ -353,4 +348,4 @@ parentOption.addEventListener("click", getCheckAnswer, false);//function to clic
 
 start.addEventListener('click', startGame);//start button
 goBack.addEventListener('click', startDiv);//go back to start button div
-clearHighScore.addEventListener('click', clearHighScoreFunction);//clears high score by calling function
+clearHighScore.addEventListener('click', clearFunction);//clears high score by calling function
